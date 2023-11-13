@@ -1,0 +1,11 @@
+.countries-table {
+  max-height: calc(100vh - 310px);
+  min-height: 300px;
+  overflow: scroll;
+}
+
+@media (min-width: 768px) {
+  .countries-table {
+    max-height: calc(100vh - 190px);
+  }
+}

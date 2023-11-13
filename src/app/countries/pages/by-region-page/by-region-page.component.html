@@ -1,0 +1,37 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Search by region</h2>
+  <hr />
+
+  <div class="row">
+    <div class="col">
+      <select
+        #regionSelect
+        class="form-select"
+        (change)="searchByRegion(regionSelect.value)"
+      >
+        <option class="text-center" [defaultSelected]="true" disabled>
+          -- Select a region --
+        </option>
+        <option
+          *ngFor="let region of regions"
+          [value]="region"
+          [selected]="initialValue === region"
+        >
+          {{ region }}
+        </option>
+      </select>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <hr />
+      <shared-loading-spinner *ngIf="isLoadingData"></shared-loading-spinner>
+      <countries-table
+        [countries]="countries"
+        [component]="'region'"
+        *ngIf="!isLoadingData"
+      ></countries-table>
+    </div>
+  </div>
+</div>

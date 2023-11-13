@@ -1,0 +1,105 @@
+<div
+  class="animate__animated animate__fadeIn animate__faster"
+  *ngIf="country; else loading"
+>
+  <div class="country-header">
+    <h2 class="country-name">{{ country.name.common }}</h2>
+    <button class="btn btn-outline-primary" (click)="goBack()">
+      <i class="bi bi-arrow-left-circle"></i> Back
+    </button>
+  </div>
+
+  <hr />
+
+  <div class="country-info">
+    <div class="country-img">
+      <img
+        class="img-thumbnail"
+        [src]="country.flags.svg"
+        [alt]="country.name.common"
+      />
+    </div>
+
+    <div class="country-data">
+      <ul class="list-group">
+        <li class="list-group-item">
+          <strong>Capital city: </strong>{{ country.capital }}
+        </li>
+        <li class="list-group-item">
+          <strong>Population: </strong>{{ country.population | number }}
+        </li>
+        <li class="list-group-item">
+          <strong>Region: </strong>{{ country.region }}
+        </li>
+        <li class="list-group-item">
+          <strong>Subregion: </strong>{{ country.subregion }}
+        </li>
+        <li class="list-group-item">
+          <strong>Area: </strong>{{ country.area | number }} km<sup>2</sup>
+        </li>
+        <li class="list-group-item">
+          <strong>Code: </strong>{{ country.cca3 }}
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <hr />
+
+  <div class="country-translations">
+    <h3>Translations</h3>
+    <div class="d-flex flex-wrap">
+      <span class="badge bg-primary m-1">{{
+        country.translations["ara"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["bre"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["ces"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["cym"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["deu"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["est"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["fin"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["fra"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["hrv"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["hun"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["ita"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["jpn"].common
+      }}</span>
+      <span class="badge bg-primary m-1">{{
+        country.translations["kor"].common
+      }}</span>
+    </div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <div class="spinner">
+    <div
+      class="spinner-border text-primary"
+      style="width: 3.5rem; height: 3.5rem"
+      role="status"
+    >
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</ng-template>

@@ -1,0 +1,28 @@
+<div class="animate__animated animate__fadeIn animate__faster">
+  <h2>Search by country name</h2>
+  <hr />
+
+  <div class="row">
+    <div class="col">
+      <shared-search-box
+        placeholder="E.g. Colombia"
+        [initialSearchTerm]="initialValue"
+        (onSearchTerm)="searchByCountryName($event)"
+      ></shared-search-box>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <hr />
+      <shared-loading-spinner *ngIf="isLoadingData"></shared-loading-spinner>
+      <countries-table
+        [countries]="countries"
+        [searchTerm]="searchTerm"
+        [cacheTerm]="initialValue"
+        [component]="'country'"
+        *ngIf="!isLoadingData"
+      ></countries-table>
+    </div>
+  </div>
+</div>
